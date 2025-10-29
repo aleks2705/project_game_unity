@@ -6,10 +6,10 @@ using BehaviorDesigner.Runtime.Tasks;
 [TaskDescription("Wait for a random duration - adds unpredictability to behavior")]
 public class WaitRandom : Action
 {
-    [Tooltip("Minimum wait time in seconds")]
+    [BehaviorDesigner.Runtime.Tasks.Tooltip("Minimum wait time in seconds")]
     public SharedFloat minWaitTime = 0.5f;
     
-    [Tooltip("Maximum wait time in seconds")]
+    [BehaviorDesigner.Runtime.Tasks.Tooltip("Maximum wait time in seconds")]
     public SharedFloat maxWaitTime = 2f;
     
     private float m_WaitDuration;

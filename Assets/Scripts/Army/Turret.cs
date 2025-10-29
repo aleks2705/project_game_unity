@@ -49,21 +49,19 @@ public class Turret : ArmyElement
 
 		m_RotationCoroutine = RotateCoroutine(m_TurretHead.rotation, Quaternion.LookRotation(startVelocity.normalized), m_RotationSpeed, onRotationOver);
 
-		StartCoroutine(m_RotationCoroutine);
+	StartCoroutine(m_RotationCoroutine);
 
-	}
+}
 
-	public void Die()
+public new void Die()
+{
+	if (ArmyManager != null)
 	{
-		if (ArmyManager != null)
-		{
-			ArmyManager.UnlockArmyElement(gameObject);
-		}
-		ArmyManager.ArmyElementHasBeenKilled(gameObject);
-		Destroy(gameObject);
+		ArmyManager.UnlockArmyElement(gameObject);
 	}
-
-	IEnumerator RotateCoroutine(Quaternion startOrient, Quaternion endOrient, float rotationSpeed, Action onRotationOver = null)
+	ArmyManager.ArmyElementHasBeenKilled(gameObject);
+	Destroy(gameObject);
+}	IEnumerator RotateCoroutine(Quaternion startOrient, Quaternion endOrient, float rotationSpeed, Action onRotationOver = null)
 	{
 		float duration = Quaternion.Angle(startOrient, endOrient) / rotationSpeed;
 		float elapsedTime = 0;

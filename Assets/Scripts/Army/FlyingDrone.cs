@@ -23,14 +23,12 @@ public class FlyingDrone : ArmyElement,IShoot
 		{
 			Transform bulletSpawnPos = m_BulletSpawnPos[i];
 			GameObject newBulletGO = Instantiate(m_BulletPrefab, bulletSpawnPos.position, Quaternion.LookRotation(bulletSpawnPos.forward,Vector3.up));
-			newBulletGO.tag = gameObject.tag;
-		}
+		newBulletGO.tag = gameObject.tag;
 	}
-
-	public void Die()
-	{
-		ArmyManager.ArmyElementHasBeenKilled(gameObject);
-		Destroy(gameObject);
-	}
-
 }
+
+public new void Die()
+{
+	ArmyManager.ArmyElementHasBeenKilled(gameObject);
+	Destroy(gameObject);
+}}

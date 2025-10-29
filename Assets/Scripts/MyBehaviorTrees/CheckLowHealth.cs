@@ -6,7 +6,7 @@ using BehaviorDesigner.Runtime.Tasks;
 [TaskDescription("Check if unit health is below threshold - used for tactical retreat")]
 public class CheckLowHealth : Conditional
 {
-    [Tooltip("Health threshold below which this returns success")]
+    [BehaviorDesigner.Runtime.Tasks.Tooltip("Health threshold below which this returns success")]
     public SharedFloat healthThreshold = 30f;
     
     private IArmyElement m_ArmyElement;

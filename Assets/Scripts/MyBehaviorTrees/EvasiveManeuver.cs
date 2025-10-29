@@ -6,16 +6,16 @@ using BehaviorDesigner.Runtime.Tasks;
 [TaskDescription("Advanced evasive maneuver for flying drones - dodges while engaging")]
 public class EvasiveManeuver : Action
 {
-    [Tooltip("Target to evade from")]
+    [BehaviorDesigner.Runtime.Tasks.Tooltip("Target to evade from")]
     public SharedTransform target;
     
-    [Tooltip("Evasion radius")]
+    [BehaviorDesigner.Runtime.Tasks.Tooltip("Evasion radius")]
     public SharedFloat evasionRadius = 5f;
     
-    [Tooltip("Evasion speed")]
+    [BehaviorDesigner.Runtime.Tasks.Tooltip("Evasion speed")]
     public SharedFloat evasionSpeed = 10f;
     
-    [Tooltip("Duration of evasive maneuver")]
+    [BehaviorDesigner.Runtime.Tasks.Tooltip("Duration of evasive maneuver")]
     public SharedFloat maneuverDuration = 1.5f;
     
     private Rigidbody m_Rigidbody;

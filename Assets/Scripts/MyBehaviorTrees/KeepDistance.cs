@@ -7,13 +7,13 @@ using BehaviorDesigner.Runtime.Tasks.Movement;
 [TaskDescription("Maintain optimal distance from target - kiting behavior for drones")]
 public class KeepDistance : NavMeshMovement
 {
-    [Tooltip("Target to maintain distance from")]
+    [BehaviorDesigner.Runtime.Tasks.Tooltip("Target to maintain distance from")]
     public SharedTransform target;
     
-    [Tooltip("Optimal distance to maintain")]
+    [BehaviorDesigner.Runtime.Tasks.Tooltip("Optimal distance to maintain")]
     public SharedFloat optimalDistance = 15f;
     
-    [Tooltip("Distance tolerance")]
+    [BehaviorDesigner.Runtime.Tasks.Tooltip("Distance tolerance")]
     public SharedFloat distanceTolerance = 3f;
 
     private float m_RepositionCooldown = 0f;

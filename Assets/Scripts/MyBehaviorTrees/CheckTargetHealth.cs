@@ -6,10 +6,10 @@ using BehaviorDesigner.Runtime.Tasks;
 [TaskDescription("Check if target's health is below threshold - for focus fire optimization")]
 public class CheckTargetHealth : Conditional
 {
-    [Tooltip("The target to check")]
+    [BehaviorDesigner.Runtime.Tasks.Tooltip("The target to check")]
     public SharedTransform target;
     
-    [Tooltip("Health threshold - returns success if target health is below this")]
+    [BehaviorDesigner.Runtime.Tasks.Tooltip("Health threshold - returns success if target health is below this")]
     public SharedFloat healthThreshold = 40f;
 
     public override TaskStatus OnUpdate()

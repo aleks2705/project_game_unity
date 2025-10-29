@@ -7,10 +7,10 @@ using BehaviorDesigner.Runtime.Tasks.Movement;
 [TaskDescription("Retreat away from nearest enemy when low on health - survival tactic")]
 public class TacticalRetreat : NavMeshMovement
 {
-    [Tooltip("Distance to retreat")]
+    [BehaviorDesigner.Runtime.Tasks.Tooltip("Distance to retreat")]
     public SharedFloat retreatDistance = 20f;
     
-    [Tooltip("Current target to flee from")]
+    [BehaviorDesigner.Runtime.Tasks.Tooltip("Current target to flee from")]
     public SharedTransform target;
     
     private IArmyElement m_ArmyElement;

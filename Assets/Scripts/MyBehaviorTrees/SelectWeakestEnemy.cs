@@ -7,7 +7,7 @@ using System.Linq;
 [TaskDescription("Select weakest enemy in range - finish off wounded targets for tactical advantage")]
 public class SelectWeakestEnemy : Action
 {
-    [Tooltip("Type of enemy to search for (Drone or Turret)")]
+    [BehaviorDesigner.Runtime.Tasks.Tooltip("Type of enemy to search for (Drone or Turret)")]
     public SharedString enemyType = "Drone";
     
     public SharedTransform target;

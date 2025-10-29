@@ -25,21 +25,19 @@ public class Drone : ArmyElement,IShoot
 			Transform missileSpawnPos = m_MissileSpawnPos[i];
 			GameObject newMissileGO = Instantiate(m_MissilePrefab, missileSpawnPos.position, Quaternion.LookRotation(Vector3.ProjectOnPlane(transform.forward, Vector3.up).normalized));
 			newMissileGO.tag = gameObject.tag;
-			Missile missile = newMissileGO.GetComponent<Missile>();
-			missile.SetStartSpeed(m_NavMeshAgent.speed);
-		}
+		Missile missile = newMissileGO.GetComponent<Missile>();
+		missile.SetStartSpeed(m_NavMeshAgent.speed);
 	}
-
-	public void Die()
-	{
-		// clean any locking entries that may reference this unit as locker
-		if (ArmyManager != null)
-		{
-			// unlock safely using ArmyManager's public API
-			ArmyManager.UnlockArmyElement(gameObject);
-			ArmyManager.ArmyElementHasBeenKilled(gameObject);
-		}
-		Destroy(gameObject);
-	}
-
 }
+
+public new void Die()
+{
+	// clean any locking entries that may reference this unit as locker
+	if (ArmyManager != null)
+	{
+		// unlock safely using ArmyManager's public API
+		ArmyManager.UnlockArmyElement(gameObject);
+		ArmyManager.ArmyElementHasBeenKilled(gameObject);
+	}
+	Destroy(gameObject);
+}}

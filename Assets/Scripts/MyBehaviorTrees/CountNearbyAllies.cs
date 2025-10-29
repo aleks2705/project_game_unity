@@ -7,13 +7,13 @@ using System.Linq;
 [TaskDescription("Count nearby friendly units - for coordination decisions")]
 public class CountNearbyAllies : Conditional
 {
-    [Tooltip("Search radius")]
+    [BehaviorDesigner.Runtime.Tasks.Tooltip("Search radius")]
     public SharedFloat searchRadius = 20f;
     
-    [Tooltip("Minimum number of allies required")]
+    [BehaviorDesigner.Runtime.Tasks.Tooltip("Minimum number of allies required")]
     public SharedInt minimumAllies = 2;
     
-    [Tooltip("Store the count")]
+    [BehaviorDesigner.Runtime.Tasks.Tooltip("Store the count")]
     public SharedInt allyCount;
 
     public override TaskStatus OnUpdate()

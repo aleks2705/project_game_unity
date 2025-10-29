@@ -7,16 +7,16 @@ using BehaviorDesigner.Runtime.Tasks.Movement;
 [TaskDescription("Circle strafe around target while maintaining distance - advanced drone tactic")]
 public class CircleStrafeTarget : NavMeshMovement
 {
-    [Tooltip("Target to circle around")]
+    [BehaviorDesigner.Runtime.Tasks.Tooltip("Target to circle around")]
     public SharedTransform target;
     
-    [Tooltip("Distance from target to maintain while circling")]
+    [BehaviorDesigner.Runtime.Tasks.Tooltip("Distance from target to maintain while circling")]
     public SharedFloat strafeDistance = 15f;
     
-    [Tooltip("Strafe speed in degrees per second")]
+    [BehaviorDesigner.Runtime.Tasks.Tooltip("Strafe speed in degrees per second")]
     public SharedFloat strafeSpeed = 45f;
     
-    [Tooltip("Clockwise or counter-clockwise")]
+    [BehaviorDesigner.Runtime.Tasks.Tooltip("Clockwise or counter-clockwise")]
     public SharedBool clockwise = true;
 
     private float m_CurrentAngle = 0f;

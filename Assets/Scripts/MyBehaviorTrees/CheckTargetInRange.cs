@@ -6,13 +6,13 @@ using BehaviorDesigner.Runtime.Tasks;
 [TaskDescription("Check if target is within specified range - for engagement decisions")]
 public class CheckTargetInRange : Conditional
 {
-    [Tooltip("Target to check distance to")]
+    [BehaviorDesigner.Runtime.Tasks.Tooltip("Target to check distance to")]
     public SharedTransform target;
     
-    [Tooltip("Minimum range")]
+    [BehaviorDesigner.Runtime.Tasks.Tooltip("Minimum range")]
     public SharedFloat minRange = 0f;
     
-    [Tooltip("Maximum range")]
+    [BehaviorDesigner.Runtime.Tasks.Tooltip("Maximum range")]
     public SharedFloat maxRange = 100f;
 
     public override TaskStatus OnUpdate()

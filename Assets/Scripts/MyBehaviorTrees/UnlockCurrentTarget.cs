@@ -10,7 +10,7 @@ public class UnlockCurrentTarget : Action
 
     public override void OnAwake()
     {
-        m_ArmyElement = GetComponent<IArmyElement>();
+        m_ArmyElement = GetComponent<ArmyElement>();
     }
 
     public override TaskStatus OnUpdate()

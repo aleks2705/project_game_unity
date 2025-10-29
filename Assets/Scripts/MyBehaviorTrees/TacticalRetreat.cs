@@ -20,7 +20,7 @@ public class TacticalRetreat : NavMeshMovement
     public override void OnAwake()
     {
         base.OnAwake();
-        m_ArmyElement = GetComponent<IArmyElement>();
+        m_ArmyElement = GetComponent<ArmyElement>();
     }
 
     public override void OnStart()

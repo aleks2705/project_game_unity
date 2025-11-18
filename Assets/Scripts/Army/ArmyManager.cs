@@ -8,7 +8,7 @@ using UnityEngine.AI;
 using UnityEngine.Events;
 
 /*
-Préparer un terrain où toutes les terrasses sont accessibles
+Prï¿½parer un terrain oï¿½ toutes les terrasses sont accessibles
 */
 
 public abstract class ArmyManager : MonoBehaviour
@@ -30,7 +30,7 @@ public abstract class ArmyManager : MonoBehaviour
         return enemies;
     }
 
-    public GameObject GetRandomEnemy<T>(Vector3 centerPos, float minRadius, float maxRadius) where T : ArmyElement
+    public virtual GameObject GetRandomEnemy<T>(GameObject attacker,Vector3 centerPos, float minRadius, float maxRadius) where T : ArmyElement
     {
         var enemies = GetAllEnemiesOfType<T>(true).Where(
             item=>  Vector3.Distance(centerPos,item.transform.position)>minRadius
@@ -49,7 +49,7 @@ public abstract class ArmyManager : MonoBehaviour
     // Start is called before the first frame update
     public virtual IEnumerator Start()
     {
-        yield return null; // on attend une frame que tous les objets aient été instanciés ...
+        yield return null; // on attend une frame que tous les objets aient ï¿½tï¿½ instanciï¿½s ...
 
         GameObject[] allArmiesElements = GameObject.FindGameObjectsWithTag(m_ArmyTag);
         foreach (var item in allArmiesElements)
@@ -81,6 +81,8 @@ public abstract class ArmyManager : MonoBehaviour
 
         if (m_ArmyElements.Count == 0 & m_OnArmyIsDead!=null) m_OnArmyIsDead.Invoke();
     }
+    public virtual void LockTarget(GameObject attacker, GameObject target) { }
+    public virtual void UnlockTarget(GameObject attacker) { }
     
 }
 

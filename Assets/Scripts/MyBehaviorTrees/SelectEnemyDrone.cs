@@ -23,11 +23,18 @@ public class SelectEnemyDrone : Action
 
 	public override TaskStatus OnUpdate()
 	{
-		if (m_ArmyElement.ArmyManager == null) return TaskStatus.Running; // la référence à l'armée n'a pas encore été injectée
+		if (m_ArmyElement.ArmyManager == null) return TaskStatus.Running;
 
-		target.Value = m_ArmyElement.ArmyManager.GetRandomEnemy<Drone>(transform.position,minRadius.Value,maxRadius.Value)?.transform;
-		if (target.Value != null) return TaskStatus.Success;
-		else return TaskStatus.Failure;
+		var enemy = m_ArmyElement.ArmyManager.GetRandomEnemy<Drone>(gameObject, transform.position, minRadius.Value, maxRadius.Value);
 
+		if (enemy != null) {
+			target.Value = enemy.transform;
+			m_ArmyElement.ArmyManager.LockTarget(gameObject, enemy);
+			return TaskStatus.Success;
+		} else {
+			target.Value = null;
+			m_ArmyElement.ArmyManager.UnlockTarget(gameObject);
+			return TaskStatus.Failure;
+		}
 	}
 }

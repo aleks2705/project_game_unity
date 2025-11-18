@@ -19,12 +19,18 @@ public class SelectEnemyTurret : Action
 
 	public override TaskStatus OnUpdate()
 	{
-		if (m_ArmyElement.ArmyManager == null) return TaskStatus.Running; // reference to the ArmyManager has not been injected yet
+		if (m_ArmyElement.ArmyManager == null) return TaskStatus.Running;
 
-		target.Value = m_ArmyElement.ArmyManager.GetRandomEnemy<Turret>(transform.position,minRadius.Value,maxRadius.Value)?.transform;
+		var enemy = m_ArmyElement.ArmyManager.GetRandomEnemy<Turret>(gameObject, transform.position, minRadius.Value, maxRadius.Value);
 
-		if (target.Value != null) return TaskStatus.Success;
-		else return TaskStatus.Failure;
-
+		if (enemy != null) {
+			target.Value = enemy.transform;
+			m_ArmyElement.ArmyManager.LockTarget(gameObject, enemy);
+			return TaskStatus.Success;
+		} else {
+			target.Value = null;
+			m_ArmyElement.ArmyManager.UnlockTarget(gameObject);
+			return TaskStatus.Failure;
+		}
 	}
 }
